@@ -3,7 +3,7 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Responsive Admin</title>
+    <title>阿卷</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -14,9 +14,6 @@
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-     
-           
-          
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
@@ -27,437 +24,62 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="assets/img/logo.png" />
-
+                        阿卷的技术学习站
                     </a>
                     
                 </div>
               
                 <span class="logout-spn" >
-                  <a href="#" style="color:#fff;">LOGOUT</a>  
-
                 </span>
             </div>
         </div>
-        <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                 
-
-
-                    <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard <span class="badge">Included</span></a>
+                    <li class="active-link" onclick="doshowul(this)">
+                        <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>SrpingCloud技术学习总结 </a>
                     </li>
-                   
-
-                    <li>
-                        <a href="ui.html"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
-                    </li>
-                    <li>
-                        <a href="blank.html"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-qrcode "></i>My Link One</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o"></i>My Link Two</a>
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-edit "></i>My Link Three </a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-table "></i>My Link Four</a>
-                    </li>
-                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>My Link Five </a>
-                    </li>
-                    
+                   <ul class="child-ul">
+                        <li class="active-link">
+                            <a href="src/springcloud/dependencies.html" ><i class="fa fa-desktop "></i>创建统一依赖 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="src/springcloud/erueka.html" ><i class="fa fa-desktop "></i>服务注册与发现 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>创建服务消费者feign </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>熔断器/监控 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>统一网关监控zuul/过滤功能 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>SrpingCloud服务配置</a>
+                        </li>
+                    </ul>
                 </ul>
-                            </div>
-
+            </div>
         </nav>
-        <!-- /. NAV SIDE  -->
-        <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>ADMIN DASHBOARD</h2>   
+                        <h2>SpringCloud</h2>   
                     </div>
                 </div>              
-                 <!-- /. ROW  -->
-                  <hr />
-                <div class="row">
-                    <div class="col-lg-12 ">
-                        <div class="alert alert-info">
-                             <strong>Welcome Jhon Doe ! </strong> You Have No pending Task For Today.
-                        </div>
-                       
-                    </div>
-                    </div>
-                  <!-- /. ROW  --> 
-                            <div class="row text-center pad-top">
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-circle-o-notch fa-5x"></i>
-                      <h4>Check Data</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div> 
-                 
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-envelope-o fa-5x"></i>
-                      <h4>Mail Box</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-lightbulb-o fa-5x"></i>
-                      <h4>New Issues</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-users fa-5x"></i>
-                      <h4>See Users</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-key fa-5x"></i>
-                      <h4>Admin </h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-comments-o fa-5x"></i>
-                      <h4>Support</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-              </div>
-                 <!-- /. ROW  --> 
-                <div class="row text-center pad-top">
-                 
-                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-clipboard fa-5x"></i>
-                      <h4>All Docs</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-gear fa-5x"></i>
-                      <h4>Settings</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-wechat fa-5x"></i>
-                      <h4>Live Talk</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-bell-o fa-5x"></i>
-                      <h4>Notifications </h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-rocket fa-5x"></i>
-                      <h4>Launch</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-user fa-5x"></i>
-                      <h4>Register User</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div> 
-              </div>   
-                  <!-- /. ROW  -->    
-                 <div class="row text-center pad-top">
-                   
-                 
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-envelope-o fa-5x"></i>
-                      <h4>Mail Box</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-lightbulb-o fa-5x"></i>
-                      <h4>New Issues</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-users fa-5x"></i>
-                      <h4>See Users</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-key fa-5x"></i>
-                      <h4>Admin </h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="#" >
- <i class="fa fa-comments-o fa-5x"></i>
-                      <h4>Support</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-circle-o-notch fa-5x"></i>
-                      <h4>Check Data</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-              </div>
-                 <!-- /. ROW  -->  
-                 <div class="row text-center pad-top">
-                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-rocket fa-5x"></i>
-                      <h4>Launch</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-clipboard fa-5x"></i>
-                      <h4>All Docs</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-gear fa-5x"></i>
-                      <h4>Settings</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-wechat fa-5x"></i>
-                      <h4>Live Talk</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-bell-o fa-5x"></i>
-                      <h4>Notifications </h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  
-                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-user fa-5x"></i>
-                      <h4>Register User</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div> 
-              </div>   
-                  <!-- /. ROW  -->  
-                <div class="row text-center pad-top">
-                   
-                 
-                  
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-lightbulb-o fa-5x"></i>
-                      <h4>New Issues</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-users fa-5x"></i>
-                      <h4>See Users</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-key fa-5x"></i>
-                      <h4>Admin </h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-comments-o fa-5x"></i>
-                      <h4>Support</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-circle-o-notch fa-5x"></i>
-                      <h4>Check Data</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                      <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-envelope-o fa-5x"></i>
-                      <h4>Mail Box</h4>
-                      </a>
-                      </div>
-                     
-                     
-                  </div>
-              </div>
-                 <!-- /. ROW  -->   
-				  <div class="row">
-                    <div class="col-lg-12 ">
-					<br/>
-                        <div class="alert alert-danger">
-                             <strong>Want More Icons Free ? </strong> Checkout fontawesome website and use any icon <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/icons/">Click Here</a>.
-                        </div>
-                       
-                    </div>
-                    </div>
-                  <!-- /. ROW  --> 
-    </div>
-             <!-- /. PAGE INNER  -->
+                <hr />
+                <h3>概述</h3>
+                <p>Spring Cloud 是一个相对比较新的微服务框架，2016 才推出 1.0 的 Release 版本. 但是其更新特别快，几乎每 1-2 个月就有一次更新，虽然 Spring Cloud 时间最短, 但是相比 Dubbo 等 RPC 框架, Spring Cloud 提供的全套的分布式系统解决方案。
+                Spring Cloud 为开发者提供了在分布式系统（配置管理，服务发现，熔断，路由，微代理，控制总线，一次性 Token，全居琐，Leader 选举，分布式 Session，集群状态）中快速构建的工具，使用 Spring Cloud 的开发者可以快速的启动服务或构建应用、同时能够快速和云平台资源进行对接。</p>
             </div>
-         <!-- /. PAGE WRAPPER  -->
+        </div>
         </div>
     <div class="footer">
-      
-    
-            <div class="row">
-                <div class="col-lg-12" >
-                    &copy;  2014 yourdomain.com | More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                </div>
-            </div>
-        </div>
-          
-
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
+    </div>
     <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
-   
 </body>
 </html>

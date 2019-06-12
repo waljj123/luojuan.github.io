@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阿卷</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        阿卷的技术学习站
+                    </a>
+                    
+                </div>
+              
+                <span class="logout-spn" >
+                </span>
+            </div>
+        </div>
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="active-link" onclick="doshowul(this)">
+                        <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>SrpingCloud技术学习总结 </a>
+                    </li>
+                   <ul class="child-ul">
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>创建统一依赖 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>服务注册与发现 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>创建服务消费者feign </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>熔断器/监控 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>统一网关监控zuul/过滤功能 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>SrpingCloud服务配置</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>创建统一依赖</h2>   
+                    </div>
+                </div>              
+                <hr />
+                <h3>概述</h3>
+                <p>在这里，我们需要用的组件是 Spring Cloud Netflix 的 Eureka，Eureka 是一个服务注册和发现模块</p>
+                <hr/>
+                <h3>创建服务注册中心</h3>
+                <p>其 pom.xml 文件配置如下：</p>
+                <pre class="language-text"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+                        &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+                            &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+                        
+                            &lt;parent&gt;
+                                &lt;groupId&gt;com.funtl&lt;/groupId&gt;
+                                &lt;artifactId&gt;hello-spring-cloud-dependencies&lt;/artifactId&gt;
+                                &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+                                &lt;relativePath&gt;../hello-spring-cloud-dependencies/pom.xml&lt;/relativePath&gt;
+                            &lt;/parent&gt;
+                        
+                            &lt;artifactId&gt;hello-spring-cloud-eureka&lt;/artifactId&gt;
+                            &lt;packaging&gt;jar&lt;/packaging&gt;
+                        
+                            &lt;name&gt;hello-spring-cloud-eureka&lt;/name&gt;
+                            &lt;url&gt;http://www.funtl.com&lt;/url&gt;
+                            &lt;inceptionYear&gt;2018-Now&lt;/inceptionYear&gt;
+                        
+                            &lt;dependencies&gt;
+                                &lt;!-- Spring Boot Begin --&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+                                    &lt;scope&gt;test&lt;/scope&gt;
+                                &lt;/dependency&gt;
+                                &lt;!-- Spring Boot End --&gt;
+                        
+                                &lt;!-- Spring Cloud Begin --&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                                &lt;!-- Spring Cloud End --&gt;
+                            &lt;/dependencies&gt;
+                        
+                            &lt;build&gt;
+                                &lt;plugins&gt;
+                                    &lt;plugin&gt;
+                                        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                                        &lt;configuration&gt;
+                                            &lt;mainClass&gt;com.funtl.hello.spring.cloud.eureka.EurekaApplication&lt;/mainClass&gt;
+                                        &lt;/configuration&gt;
+                                    &lt;/plugin&gt;
+                                &lt;/plugins&gt;
+                            &lt;/build&gt;
+                        &lt;/project&gt;
+                        </code></pre>
+                        <h3>Application</h3>
+                        <p>启动一个服务注册中心，只需要一个注解 @EnableEurekaServer</p>
+                        <pre class="language-text"><code>package com.funtl.hello.spring.cloud.eureka;
+
+                                import org.springframework.boot.SpringApplication;
+                                import org.springframework.boot.autoconfigure.SpringBootApplication;
+                                import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+                                
+                                @SpringBootApplication
+                                @EnableEurekaServer
+                                public class EurekaApplication {
+                                    public static void main(String[] args) {
+                                        SpringApplication.run(EurekaApplication.class, args);
+                                    }
+                                }
+                                </code></pre>
+                        <h3>application.yml</h3>
+                        <p>Eureka 是一个高可用的组件，它没有后端缓存，每一个实例注册之后需要向注册中心发送心跳（因此可以在内存中完成），在默认情况下 Erureka Server 也是一个 Eureka Client ,必须要指定一个 Server。</p>
+                        <pre class="language-text"><code>spring:
+                                application:
+                                  name: hello-spring-cloud-eureka
+                              
+                              server:
+                                port: 8761
+                              
+                              eureka:
+                                instance:
+                                  hostname: localhost
+                                client:
+                                  registerWithEureka: false
+                                  fetchRegistry: false
+                                  serviceUrl:
+                                    defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+                              </code></pre>
+
+                        <p>通过 eureka.client.registerWithEureka:false 和 fetchRegistry:false 来表明自己是一个 Eureka Server</p>
+                        <p>Eureka Server 是有界面的，启动工程，打开浏览器访问：
+
+                                http://localhost:8761</p>
+                        
+            </div>
+        </div>
+        </div>
+    <div class="footer">
+    </div>
+    <script src="../../assets/js/jquery-1.10.2.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/custom.js"></script>
+</body>
+</html>
