@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阿卷</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+</head>
+<body>
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        阿卷的技术学习站
+                    </a>
+                    
+                </div>
+              
+                <span class="logout-spn" >
+                </span>
+            </div>
+        </div>
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="active-link" onclick="doshowul(this)">
+                        <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>SrpingCloud技术学习总结 </a>
+                    </li>
+                   <ul class="child-ul">
+                        <li class="active-link">
+                            <a href="dependencies.html" ><i class="fa fa-desktop "></i>创建统一依赖 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="erueka.html" ><i class="fa fa-desktop "></i>服务注册与发现 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>创建服务消费者feign </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>熔断器/监控 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="zuul.html" ><i class="fa fa-desktop "></i>统一网关监控zuul/过滤功能 </a>
+                        </li>
+                        <li class="active-link">
+                            <a href="javascript:void(0)" ><i class="fa fa-desktop "></i>SrpingCloud服务配置</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>创建服务消费者feign</h2>   
+                    </div>
+                </div>              
+                <hr />
+                <h3>概述</h3>
+                <p>Feign 是一个声明式的伪 Http 客户端，它使得写 Http 客户端变得更简单。使用 Feign，只需要创建一个接口并注解。它具有可插拔的注解特性，可使用 Feign 注解和 JAX-RS 注解。Feign 支持可插拔的编码器和解码器。Feign 默认集成了 Ribbon，并和 Eureka 结合，默认实现了负载均衡的效果</p>
+                        <ul>
+                                <li>
+                                    Feign 采用的是基于接口的注解
+                                </li>
+                                <li>
+                                        Feign 整合了 ribbon
+                                </li>
+                            </ul>
+                <h3>创建服务消费者</h3>
+                <pre class="language-text"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+                        &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+                            &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+                        
+                            &lt;parent&gt;
+                                &lt;groupId&gt;com.funtl&lt;/groupId&gt;
+                                &lt;artifactId&gt;hello-spring-cloud-dependencies&lt;/artifactId&gt;
+                                &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+                                &lt;relativePath&gt;../hello-spring-cloud-dependencies/pom.xml&lt;/relativePath&gt;
+                            &lt;/parent&gt;
+                        
+                            &lt;artifactId&gt;hello-spring-cloud-web-admin-feign&lt;/artifactId&gt;
+                            &lt;packaging&gt;jar&lt;/packaging&gt;
+                        
+                            &lt;name&gt;hello-spring-cloud-web-admin-feign&lt;/name&gt;
+                            &lt;url&gt;http://www.funtl.com&lt;/url&gt;
+                            &lt;inceptionYear&gt;2018-Now&lt;/inceptionYear&gt;
+                        
+                            &lt;dependencies&gt;
+                                &lt;!-- Spring Boot Begin --&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+                                    &lt;scope&gt;test&lt;/scope&gt;
+                                &lt;/dependency&gt;
+                                &lt;!-- Spring Boot End --&gt;
+                        
+                                &lt;!-- Spring Cloud Begin --&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                                    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                                &lt;!-- Spring Cloud End --&gt;
+                        
+                                &lt;!-- 解决 thymeleaf 模板引擎一定要执行严格的 html5 格式校验问题 --&gt;
+                                &lt;dependency&gt;
+                                    &lt;groupId&gt;net.sourceforge.nekohtml&lt;/groupId&gt;
+                                    &lt;artifactId&gt;nekohtml&lt;/artifactId&gt;
+                                &lt;/dependency&gt;
+                            &lt;/dependencies&gt;
+                        
+                            &lt;build&gt;
+                                &lt;plugins&gt;
+                                    &lt;plugin&gt;
+                                        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                                        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                                        &lt;configuration&gt;
+                                            &lt;mainClass&gt;com.funtl.hello.spring.cloud.web.admin.feign.WebAdminFeignApplication&lt;/mainClass&gt;
+                                        &lt;/configuration&gt;
+                                    &lt;/plugin&gt;
+                                &lt;/plugins&gt;
+                            &lt;/build&gt;
+                        &lt;/project&gt;
+                        </code></pre>
+
+                        <p>主要是增加了 Feign 的依赖</p>
+                         <pre class="language-text"><code>
+                           &lt;dependency&gt;
+                            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                            &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+                            &lt;/dependency&gt;
+                         </code></pre>
+                         
+                         <h3>Application</h3>
+                         <p>通过 @EnableFeignClients 注解开启 Feign 功能</p>
+                         <pre class="language-text"><code>package com.funtl.hello.spring.cloud.web.admin.feign;
+
+                                import org.springframework.boot.SpringApplication;
+                                import org.springframework.boot.autoconfigure.SpringBootApplication;
+                                import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+                                import org.springframework.cloud.openfeign.EnableFeignClients;
+                                
+                                @SpringBootApplication
+                                @EnableDiscoveryClient
+                                @EnableFeignClients
+                                public class WebAdminFeignApplication {
+                                    public static void main(String[] args) {
+                                        SpringApplication.run(WebAdminFeignApplication.class, args);
+                                    }
+                                }
+                                </code></pre>
+
+                         <h3>application.yml</h3>
+                         <p>设置程序端口号为：8765</p>
+                         <pre class="language-text"><code>spring:
+                                application:
+                                  name: hello-spring-cloud-web-admin-feign
+                                thymeleaf:
+                                  cache: false
+                                  mode: LEGACYHTML5
+                                  encoding: UTF-8
+                                  servlet:
+                                    content-type: text/html
+                              
+                              server:
+                                port: 8765
+                              
+                              eureka:
+                                client:
+                                  serviceUrl:
+                                    defaultZone: http://localhost:8761/eureka/
+                              </code></pre>
+                        <h3>创建 Feign 接口</h3>
+                        <p>通过 @FeignClient("服务名") 注解来指定调用哪个服务。代码如下：</p>
+                        <pre class="language-text"><code>package com.funtl.hello.spring.cloud.web.admin.feign.service;
+
+                                import org.springframework.cloud.openfeign.FeignClient;
+                                import org.springframework.web.bind.annotation.RequestMapping;
+                                import org.springframework.web.bind.annotation.RequestMethod;
+                                import org.springframework.web.bind.annotation.RequestParam;
+                                
+                                @FeignClient(value = "hello-spring-cloud-service-admin")
+                                public interface AdminService {
+                                
+                                    @RequestMapping(value = "hi", method = RequestMethod.GET)
+                                    public String sayHi(@RequestParam(value = "message") String message);
+                                }
+                                </code></pre>
+                        <h3>创建测试用的 Controller</h3>
+                        <pre class="language-text"><code>package com.funtl.hello.spring.cloud.web.admin.feign.controller;
+
+                                import com.funtl.hello.spring.cloud.web.admin.feign.service.AdminService;
+                                import org.springframework.beans.factory.annotation.Autowired;
+                                import org.springframework.web.bind.annotation.RequestMapping;
+                                import org.springframework.web.bind.annotation.RequestMethod;
+                                import org.springframework.web.bind.annotation.RequestParam;
+                                import org.springframework.web.bind.annotation.RestController;
+                                
+                                @RestController
+                                public class AdminController {
+                                
+                                    @Autowired
+                                    private AdminService adminService;
+                                
+                                    @RequestMapping(value = "hi", method = RequestMethod.GET)
+                                    public String sayHi(@RequestParam String message) {
+                                        return adminService.sayHi(message);
+                                    }
+                                }
+                                </code></pre>
+                        <h3>测试访问</h3>
+                        <p>在浏览器上多次访问 http://localhost:8765/hi?message=HelloFeign
+
+                                浏览器交替显示：</p>
+                                <pre class="language-text"><code>Hi，your message is :"HelloFeign" i am from port：8762
+                                        Hi，your message is :"HelloFeign" i am from port：8763
+                                        </code></pre>        
+                        
+            </div>
+        </div>
+        </div>
+    <div class="footer">
+    </div>
+    <script src="../../assets/js/jquery-1.10.2.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/custom.js"></script>
+</body>
+</html>
