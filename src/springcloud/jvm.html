@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阿卷</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+</head>
+<body>
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        阿卷的技术学习站
+                    </a>
+                    <a class="navbar-brand" href="https://github.com/waljj123"> github主页:https://github.com/waljj123</a>
+                    
+                </div>
+              
+                <span class="logout-spn" >
+                </span>
+            </div>
+        </div>
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+               
+            </div>
+        </nav>
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                    <h3>概述</h3>
+                    <h4>JVM 是可运行 Java 代码的假想计算机 ，包括一套字节码指令集、一组寄存器、一个栈、
+                            一个垃圾回收，堆 和 一个存储方法域。JVM 是运行在操作系统之上的，它与硬件没有直接
+                            的交互。
+                            </h4>
+                    <h3>JVM的内存空间：</h3>
+                    <h4>
+                        方法区：主要存放被虚拟机加载的类模板信息，常量，静态变量。</br>异常：当方法区无法满足内存分配需求时，将抛出OutOfMemoryError。
+                    </h4><br/>
+                    <h4>
+                        堆：用于存放对象，数组</br>
+                        Java堆是垃圾收集器管理的主要区域,因此很多时候也被称为”GC堆”(Garbage Collected Heap,幸好国内没有翻译成”垃圾堆”).从内存回收的角度来看,由于现在收集器基本都采用分代收集算法,所以Java堆中还可以细分为:新生代和老年代;再细致一点的有Eden空间/From Survivor空间/To Survivor空间等.从内存分配的角度来看,线程共享的Java堆中可能划分出多个线程私有的分配缓冲区(Thread Local Allocation Buffer, TLAB).不过无论如何划分,都与存放内容无关,无论哪个区域,存储的都仍然是对象实例,进一步划分的目的是为了更好的回收内存,或者更快的分配内存.
+
+根据Java虚拟机规范的规定,Java堆可以处于物理上不连续的内存空间中,只要逻辑上是连续的即可,就像我们的磁盘空间一样.在实现时,既可以实现固定大小的,也可以是可扩展的,不过当前主流的虚拟机都是按照可扩展来实现的(通过-Xmx和-Xms控制).如果在堆中没有内存完成实例分配,并且堆也无法再扩展时,就会抛出OutOfMemoryError异常.
+                    </h4>
+                    
+                    <br/>
+                    <h4>
+                        方法栈：是描述java方法执行的内存模型，每个方法在执行的同时都会创建一个栈帧（Stack Frame）
+                        用于存储局部变量表、操作数栈、动态链接、方法出口等信息。每一个方法从调用直至执行完成
+                        的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。
+                        栈帧（ Frame）是用来存储数据和部分过程结果的数据结构，同时也被用来处理动态链接
+                        (Dynamic Linking)、 方法返回值和异常分派（ Dispatch Exception）。栈帧随着方法调用而创
+                        13/04/2018 Page 23 of 283
+                        建，随着方法结束而销毁——无论方法是正常完成还是异常完成（抛出了在方法内未被捕获的异
+                        常）都算作方法结束。
+
+                    </h4><br/>
+                    <h4>
+                            本地方法栈：本地方法区和 Java Stack 作用类似, 区别是虚拟机栈为执行 Java 方法服务, 而本地方法栈则为
+                            Native 方法服务, 如果一个 VM 实现使用 C-linkage 模型来支持 Native 调用, 那么该栈将会是一个
+                            C 栈，但 HotSpot VM 直接就把本地方法栈和虚拟机栈合二为一。
+                            
+    
+                        </h4><br/>
+                        <h4>
+                            程序计数器：一块较小的内存空间, 是当前线程所执行的字节码的行号指示器，每条线程都要有一个独立的
+                            程序计数器，这类内存也称为“线程私有”的内存。
+                            正在执行 java 方法的话，计数器记录的是虚拟机字节码指令的地址（当前指令的地址）。如
+                            果还是 Native 方法，则为空。
+                            这个内存区域是唯一一个在虚拟机中没有规定任何 OutOfMemoryError 情况的区域
+        
+                            </h4><br/>
+
+            </div>
+        </div>
+        </div>
+    <div class="footer">
+    </div>
+    <script src="../../assets/js/jquery-1.10.2.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/custom.js"></script>
+    <script src="../../assets/js/daohang.js"></script>
+</body>
+</html>
